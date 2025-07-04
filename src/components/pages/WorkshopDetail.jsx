@@ -135,20 +135,20 @@ const getDifficultyColor = (difficulty) => {
     }
   };
 
-  const getCategoryGradient = (category) => {
+const getCategoryGradient = (category) => {
     switch (category) {
       case 'Time Management': 
-        return 'from-blue-600 via-cyan-500 to-blue-400';
+        return 'from-blue-700 via-cyan-600 to-teal-500';
       case 'Soft Skills': 
-        return 'from-purple-600 via-pink-500 to-purple-400';
+        return 'from-purple-700 via-pink-600 to-violet-500';
       case 'Communication': 
-        return 'from-green-600 via-emerald-500 to-green-400';
+        return 'from-emerald-700 via-green-600 to-lime-500';
       case 'Personal Finance': 
-        return 'from-amber-600 via-orange-500 to-amber-400';
+        return 'from-amber-700 via-orange-600 to-yellow-500';
       case 'Verbal and Written': 
-        return 'from-indigo-600 via-violet-500 to-indigo-400';
+        return 'from-indigo-800 via-purple-700 to-blue-600';
       default: 
-        return 'from-primary via-secondary to-accent';
+        return 'from-indigo-700 via-purple-600 to-blue-500';
     }
   };
 
@@ -166,7 +166,7 @@ return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <section className={`relative bg-gradient-to-br ${getCategoryGradient(workshop.category)} text-white py-20 overflow-hidden transition-all duration-700 ease-out`}>
-        <div className="absolute inset-0 bg-gradient-to-br from-black/20 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-black/20 to-transparent"></div>
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

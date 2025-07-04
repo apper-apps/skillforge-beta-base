@@ -38,11 +38,11 @@ return (
       className="card card-hover cursor-pointer group overflow-hidden bg-white rounded-2xl shadow-card hover:shadow-floating transition-all duration-300"
       onClick={handleCardClick}
     >
-      {/* Modern Thumbnail Section */}
-      <div className="relative h-48 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/5 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20"></div>
+{/* Modern Thumbnail Section */}
+      <div className="relative h-48 bg-gradient-to-br from-indigo-500/20 via-purple-500/20 to-blue-500/10 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/30 via-purple-600/25 to-blue-600/20"></div>
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-20 h-20 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+          <div className="w-20 h-20 bg-gradient-to-br from-indigo-600 via-purple-600 to-blue-600 rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300">
             <ApperIcon name={getCategoryIcon(workshop.category)} size={32} className="text-white" />
           </div>
         </div>
@@ -108,9 +108,9 @@ return (
           View Details
         </Button>
         
-        {workshop.nextSession && (
-          <div className="mt-4 p-3 bg-gradient-to-r from-accent/10 to-yellow-500/10 rounded-xl border border-accent/20">
-            <p className="text-sm text-accent font-semibold text-center flex items-center justify-center gap-1.5">
+{workshop.nextSession && (
+          <div className="mt-4 p-3 bg-gradient-to-r from-amber-500/20 via-orange-500/15 to-yellow-500/20 rounded-xl border border-amber-400/30">
+            <p className="text-sm text-amber-700 font-semibold text-center flex items-center justify-center gap-1.5">
               <ApperIcon name="Calendar" size={14} />
               Next session: {new Date(workshop.nextSession).toLocaleDateString()}
             </p>
