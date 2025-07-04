@@ -126,12 +126,29 @@ const handleEnroll = () => {
     );
   }
 
-  const getDifficultyColor = (difficulty) => {
+const getDifficultyColor = (difficulty) => {
     switch (difficulty?.toLowerCase()) {
       case 'beginner': return 'success';
       case 'intermediate': return 'warning';
       case 'advanced': return 'error';
       default: return 'default';
+    }
+  };
+
+  const getCategoryGradient = (category) => {
+    switch (category) {
+      case 'Time Management': 
+        return 'from-blue-600 via-cyan-500 to-blue-400';
+      case 'Soft Skills': 
+        return 'from-purple-600 via-pink-500 to-purple-400';
+      case 'Communication': 
+        return 'from-green-600 via-emerald-500 to-green-400';
+      case 'Personal Finance': 
+        return 'from-amber-600 via-orange-500 to-amber-400';
+      case 'Verbal and Written': 
+        return 'from-indigo-600 via-violet-500 to-indigo-400';
+      default: 
+        return 'from-primary via-secondary to-accent';
     }
   };
 
@@ -145,11 +162,10 @@ const handleEnroll = () => {
       default: return 'BookOpen';
     }
   };
-
 return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary via-secondary to-accent text-white py-20 overflow-hidden">
+      <section className={`relative bg-gradient-to-br ${getCategoryGradient(workshop.category)} text-white py-20 overflow-hidden transition-all duration-700 ease-out`}>
         <div className="absolute inset-0 bg-gradient-to-br from-black/20 to-transparent"></div>
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
