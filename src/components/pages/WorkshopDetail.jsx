@@ -161,9 +161,9 @@ const WorkshopDetail = () => {
               )}
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4">
+<div className="flex flex-col sm:flex-row gap-4">
               <Button
-                variant={isEnrolled ? "success" : "accent"}
+                variant={isEnrolled ? "success" : "success"}
                 size="large"
                 onClick={handleEnroll}
                 disabled={isEnrolled}
@@ -173,7 +173,6 @@ const WorkshopDetail = () => {
               >
                 {isEnrolled ? 'Already Enrolled' : `Enroll Now - $${workshop.price}`}
               </Button>
-              
               <Button
                 variant="secondary"
                 size="large"
@@ -295,17 +294,22 @@ const WorkshopDetail = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.6 }}
-                  className="bg-white rounded-xl shadow-card p-6 sticky top-24"
+className="bg-white rounded-xl shadow-card p-6 sticky top-24"
                 >
-                  <div className="text-center mb-6">
-                    <p className="text-3xl font-bold gradient-text mb-2">
-                      ${workshop.price}
-                    </p>
-                    <p className="text-gray-600">One-time payment</p>
+                  <div className="text-center mb-6 p-4 bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg border">
+                    <div className="mb-3">
+                      <span className="text-sm font-medium text-gray-500 uppercase tracking-wide">Course Price</span>
+                    </div>
+                    <div className="flex items-center justify-center gap-2 mb-2">
+                      <span className="text-4xl font-bold text-gray-900">${workshop.price}</span>
+                      <span className="text-lg text-gray-500 line-through opacity-60">${Math.round(workshop.price * 1.5)}</span>
+                    </div>
+                    <p className="text-green-600 font-medium mb-2">✓ One-time payment</p>
+                    <p className="text-sm text-gray-600">No recurring fees • Lifetime access</p>
                   </div>
                   
                   <Button
-                    variant={isEnrolled ? "success" : "primary"}
+                    variant="success"
                     size="large"
                     onClick={handleEnroll}
                     disabled={isEnrolled}
@@ -315,7 +319,6 @@ const WorkshopDetail = () => {
                   >
                     {isEnrolled ? 'Already Enrolled' : 'Enroll Now'}
                   </Button>
-                  
                   <div className="space-y-4 mb-6">
                     <div className="flex items-center gap-3">
                       <ApperIcon name="Infinity" size={16} className="text-primary" />

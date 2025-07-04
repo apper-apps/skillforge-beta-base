@@ -83,9 +83,8 @@ const WorkshopCard = ({ workshop }) => {
           </div>
         )}
       </div>
-      
-      <Button
-        variant="primary"
+<Button
+        variant="success"
         className="w-full"
         onClick={(e) => {
           e.stopPropagation();
@@ -94,7 +93,6 @@ const WorkshopCard = ({ workshop }) => {
       >
         View Details
       </Button>
-      
       {workshop.nextSession && (
         <div className="mt-3 p-2 bg-accent/10 rounded-lg">
           <p className="text-xs text-accent font-medium text-center">

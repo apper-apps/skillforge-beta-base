@@ -20,11 +20,10 @@ const Button = ({
     primary: 'bg-gradient-to-r from-primary to-secondary text-white hover:shadow-lg hover:scale-105 focus:ring-primary',
     secondary: 'bg-white text-primary border-2 border-primary hover:bg-primary hover:text-white focus:ring-primary',
     accent: 'bg-gradient-to-r from-accent to-yellow-500 text-white hover:shadow-lg hover:scale-105 focus:ring-accent',
-    ghost: 'bg-transparent text-gray-700 hover:bg-gray-100 focus:ring-gray-500',
+ghost: 'bg-transparent text-gray-700 hover:bg-gray-100 focus:ring-gray-500',
     danger: 'bg-gradient-to-r from-error to-red-600 text-white hover:shadow-lg hover:scale-105 focus:ring-error',
-    success: 'bg-gradient-to-r from-success to-green-600 text-white hover:shadow-lg hover:scale-105 focus:ring-success',
+    success: 'bg-gradient-to-r from-emerald-500 to-green-600 text-white hover:shadow-lg hover:shadow-green-500/25 hover:scale-105 focus:ring-green-500 active:scale-95',
   };
-
   const sizes = {
     small: 'px-3 py-2 text-sm',
     medium: 'px-6 py-3 text-base',
