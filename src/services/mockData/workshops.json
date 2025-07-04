@@ -1,0 +1,428 @@
+[
+  {
+    "Id": 1,
+    "title": "Master Your Time: Productivity Fundamentals",
+    "category": "Time Management",
+    "description": "Learn proven techniques to organize your day, prioritize tasks, and achieve more while reducing stress. Perfect for beginners looking to build better habits.",
+    "instructor": "Sarah Johnson",
+    "duration": "4 hours",
+    "difficulty": "Beginner",
+    "enrollmentCount": 1247,
+    "price": 49,
+    "nextSession": "2024-02-15T10:00:00Z",
+    "modules": [
+      {
+        "Id": 1,
+        "title": "Understanding Time Management",
+        "duration": "45 min",
+        "order": 1,
+        "lessons": [
+          {
+            "Id": 1,
+            "title": "Introduction to Time Management",
+            "duration": "15 min",
+            "type": "video"
+          },
+          {
+            "Id": 2,
+            "title": "Common Time Wasters",
+            "duration": "20 min",
+            "type": "video"
+          },
+          {
+            "Id": 3,
+            "title": "Setting Up Your System",
+            "duration": "10 min",
+            "type": "exercise"
+          }
+        ]
+      },
+      {
+        "Id": 2,
+        "title": "Priority Matrix Method",
+        "duration": "60 min",
+        "order": 2,
+        "lessons": [
+          {
+            "Id": 4,
+            "title": "Eisenhower Matrix Explained",
+            "duration": "25 min",
+            "type": "video"
+          },
+          {
+            "Id": 5,
+            "title": "Practical Application",
+            "duration": "35 min",
+            "type": "exercise"
+          }
+        ]
+      }
+    ],
+    "learningOutcomes": [
+      "Create effective daily schedules",
+      "Master the art of prioritization",
+      "Eliminate time-wasting activities",
+      "Build sustainable productivity habits"
+    ]
+  },
+  {
+    "Id": 2,
+    "title": "Effective Communication Skills",
+    "category": "Communication",
+    "description": "Develop confidence in speaking, active listening, and clear expression. Build stronger relationships through better communication.",
+    "instructor": "Michael Chen",
+    "duration": "5 hours",
+    "difficulty": "Beginner",
+    "enrollmentCount": 892,
+    "price": 59,
+    "nextSession": "2024-02-20T14:00:00Z",
+    "modules": [
+      {
+        "Id": 3,
+        "title": "Communication Fundamentals",
+        "duration": "75 min",
+        "order": 1,
+        "lessons": [
+          {
+            "Id": 6,
+            "title": "What is Effective Communication?",
+            "duration": "20 min",
+            "type": "video"
+          },
+          {
+            "Id": 7,
+            "title": "Barriers to Communication",
+            "duration": "25 min",
+            "type": "video"
+          },
+          {
+            "Id": 8,
+            "title": "Body Language Basics",
+            "duration": "30 min",
+            "type": "interactive"
+          }
+        ]
+      },
+      {
+        "Id": 4,
+        "title": "Active Listening Techniques",
+        "duration": "90 min",
+        "order": 2,
+        "lessons": [
+          {
+            "Id": 9,
+            "title": "The Art of Listening",
+            "duration": "30 min",
+            "type": "video"
+          },
+          {
+            "Id": 10,
+            "title": "Listening Exercises",
+            "duration": "45 min",
+            "type": "exercise"
+          },
+          {
+            "Id": 11,
+            "title": "Feedback Techniques",
+            "duration": "15 min",
+            "type": "video"
+          }
+        ]
+      }
+    ],
+    "learningOutcomes": [
+      "Speak with confidence and clarity",
+      "Master active listening skills",
+      "Understand non-verbal communication",
+      "Handle difficult conversations"
+    ]
+  },
+  {
+    "Id": 3,
+    "title": "Personal Finance Basics",
+    "category": "Personal Finance",
+    "description": "Take control of your money with simple budgeting, saving, and investment strategies. Start building your financial future today.",
+    "instructor": "Lisa Rodriguez",
+    "duration": "6 hours",
+    "difficulty": "Beginner",
+    "enrollmentCount": 1567,
+    "price": 79,
+    "nextSession": "2024-02-18T09:00:00Z",
+    "modules": [
+      {
+        "Id": 5,
+        "title": "Budgeting Fundamentals",
+        "duration": "90 min",
+        "order": 1,
+        "lessons": [
+          {
+            "Id": 12,
+            "title": "Understanding Your Money Flow",
+            "duration": "30 min",
+            "type": "video"
+          },
+          {
+            "Id": 13,
+            "title": "Creating Your First Budget",
+            "duration": "45 min",
+            "type": "exercise"
+          },
+          {
+            "Id": 14,
+            "title": "Tracking Expenses",
+            "duration": "15 min",
+            "type": "tool"
+          }
+        ]
+      },
+      {
+        "Id": 6,
+        "title": "Saving Strategies",
+        "duration": "75 min",
+        "order": 2,
+        "lessons": [
+          {
+            "Id": 15,
+            "title": "Emergency Fund Basics",
+            "duration": "25 min",
+            "type": "video"
+          },
+          {
+            "Id": 16,
+            "title": "Savings Goals and Automation",
+            "duration": "35 min",
+            "type": "exercise"
+          },
+          {
+            "Id": 17,
+            "title": "High-Yield Savings Options",
+            "duration": "15 min",
+            "type": "video"
+          }
+        ]
+      }
+    ],
+    "learningOutcomes": [
+      "Create and stick to a budget",
+      "Build an emergency fund",
+      "Understand basic investment concepts",
+      "Develop healthy money habits"
+    ]
+  },
+  {
+    "Id": 4,
+    "title": "Essential Soft Skills for Success",
+    "category": "Soft Skills",
+    "description": "Develop emotional intelligence, teamwork, and leadership skills that employers value. Perfect for career advancement.",
+    "instructor": "David Park",
+    "duration": "4.5 hours",
+    "difficulty": "Intermediate",
+    "enrollmentCount": 743,
+    "price": 69,
+    "nextSession": "2024-02-25T11:00:00Z",
+    "modules": [
+      {
+        "Id": 7,
+        "title": "Emotional Intelligence",
+        "duration": "90 min",
+        "order": 1,
+        "lessons": [
+          {
+            "Id": 18,
+            "title": "Understanding Emotions",
+            "duration": "30 min",
+            "type": "video"
+          },
+          {
+            "Id": 19,
+            "title": "Self-Awareness Exercises",
+            "duration": "40 min",
+            "type": "exercise"
+          },
+          {
+            "Id": 20,
+            "title": "Managing Emotions",
+            "duration": "20 min",
+            "type": "video"
+          }
+        ]
+      },
+      {
+        "Id": 8,
+        "title": "Teamwork and Collaboration",
+        "duration": "75 min",
+        "order": 2,
+        "lessons": [
+          {
+            "Id": 21,
+            "title": "Building Trust in Teams",
+            "duration": "25 min",
+            "type": "video"
+          },
+          {
+            "Id": 22,
+            "title": "Conflict Resolution",
+            "duration": "35 min",
+            "type": "case-study"
+          },
+          {
+            "Id": 23,
+            "title": "Leading by Example",
+            "duration": "15 min",
+            "type": "video"
+          }
+        ]
+      }
+    ],
+    "learningOutcomes": [
+      "Develop emotional intelligence",
+      "Work effectively in teams",
+      "Resolve conflicts constructively",
+      "Build leadership presence"
+    ]
+  },
+  {
+    "Id": 5,
+    "title": "Writing That Works: Clear Communication",
+    "category": "Verbal and Written",
+    "description": "Master the art of clear, concise writing for emails, reports, and presentations. Improve your professional communication.",
+    "instructor": "Emma Thompson",
+    "duration": "3.5 hours",
+    "difficulty": "Beginner",
+    "enrollmentCount": 624,
+    "price": 45,
+    "nextSession": "2024-02-22T13:00:00Z",
+    "modules": [
+      {
+        "Id": 9,
+        "title": "Writing Fundamentals",
+        "duration": "60 min",
+        "order": 1,
+        "lessons": [
+          {
+            "Id": 24,
+            "title": "Clarity and Conciseness",
+            "duration": "20 min",
+            "type": "video"
+          },
+          {
+            "Id": 25,
+            "title": "Structure and Flow",
+            "duration": "25 min",
+            "type": "exercise"
+          },
+          {
+            "Id": 26,
+            "title": "Common Writing Mistakes",
+            "duration": "15 min",
+            "type": "video"
+          }
+        ]
+      },
+      {
+        "Id": 10,
+        "title": "Professional Writing",
+        "duration": "90 min",
+        "order": 2,
+        "lessons": [
+          {
+            "Id": 27,
+            "title": "Email Excellence",
+            "duration": "30 min",
+            "type": "video"
+          },
+          {
+            "Id": 28,
+            "title": "Report Writing",
+            "duration": "45 min",
+            "type": "exercise"
+          },
+          {
+            "Id": 29,
+            "title": "Presentation Scripts",
+            "duration": "15 min",
+            "type": "template"
+          }
+        ]
+      }
+    ],
+    "learningOutcomes": [
+      "Write clear, professional emails",
+      "Create compelling reports",
+      "Develop persuasive presentations",
+      "Edit and proofread effectively"
+    ]
+  },
+  {
+    "Id": 6,
+    "title": "Advanced Time Management Strategies",
+    "category": "Time Management",
+    "description": "Take your productivity to the next level with advanced techniques, automation, and strategic planning methods.",
+    "instructor": "Robert Kim",
+    "duration": "5.5 hours",
+    "difficulty": "Advanced",
+    "enrollmentCount": 389,
+    "price": 89,
+    "nextSession": "2024-03-01T15:00:00Z",
+    "modules": [
+      {
+        "Id": 11,
+        "title": "Strategic Time Planning",
+        "duration": "120 min",
+        "order": 1,
+        "lessons": [
+          {
+            "Id": 30,
+            "title": "Long-term Goal Setting",
+            "duration": "40 min",
+            "type": "video"
+          },
+          {
+            "Id": 31,
+            "title": "Quarterly Planning",
+            "duration": "50 min",
+            "type": "exercise"
+          },
+          {
+            "Id": 32,
+            "title": "Review and Adjust",
+            "duration": "30 min",
+            "type": "framework"
+          }
+        ]
+      },
+      {
+        "Id": 12,
+        "title": "Automation and Delegation",
+        "duration": "90 min",
+        "order": 2,
+        "lessons": [
+          {
+            "Id": 33,
+            "title": "Task Automation Tools",
+            "duration": "35 min",
+            "type": "tool"
+          },
+          {
+            "Id": 34,
+            "title": "Effective Delegation",
+            "duration": "40 min",
+            "type": "video"
+          },
+          {
+            "Id": 35,
+            "title": "Systems Thinking",
+            "duration": "15 min",
+            "type": "concept"
+          }
+        ]
+      }
+    ],
+    "learningOutcomes": [
+      "Master strategic time planning",
+      "Implement automation systems",
+      "Delegate effectively",
+      "Build scalable productivity systems"
+    ]
+  }
+]

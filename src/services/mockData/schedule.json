@@ -1,0 +1,56 @@
+[
+  {
+    "Id": 1,
+    "title": "Time Management Workshop Session 1",
+    "workshop": "Master Your Time: Productivity Fundamentals",
+    "date": "2024-02-15T10:00:00Z",
+    "time": "10:00 AM - 11:30 AM",
+    "type": "live",
+    "instructor": "Sarah Johnson"
+  },
+  {
+    "Id": 2,
+    "title": "Communication Skills Practice",
+    "workshop": "Effective Communication Skills",
+    "date": "2024-02-17T14:00:00Z",
+    "time": "2:00 PM - 3:00 PM",
+    "type": "practice",
+    "instructor": "Michael Chen"
+  },
+  {
+    "Id": 3,
+    "title": "Personal Finance Q&A",
+    "workshop": "Personal Finance Basics",
+    "date": "2024-02-18T09:00:00Z",
+    "time": "9:00 AM - 10:00 AM",
+    "type": "live",
+    "instructor": "Lisa Rodriguez"
+  },
+  {
+    "Id": 4,
+    "title": "Writing Workshop Review",
+    "workshop": "Writing That Works: Clear Communication",
+    "date": "2024-02-22T13:00:00Z",
+    "time": "1:00 PM - 2:30 PM",
+    "type": "review",
+    "instructor": "Emma Thompson"
+  },
+  {
+    "Id": 5,
+    "title": "Soft Skills Group Exercise",
+    "workshop": "Essential Soft Skills for Success",
+    "date": "2024-02-25T11:00:00Z",
+    "time": "11:00 AM - 12:00 PM",
+    "type": "practice",
+    "instructor": "David Park"
+  },
+  {
+    "Id": 6,
+    "title": "Advanced Time Management Masterclass",
+    "workshop": "Advanced Time Management Strategies",
+    "date": "2024-03-01T15:00:00Z",
+    "time": "3:00 PM - 5:00 PM",
+    "type": "live",
+    "instructor": "Robert Kim"
+  }
+]
