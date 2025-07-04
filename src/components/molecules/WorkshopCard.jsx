@@ -31,75 +31,92 @@ const WorkshopCard = ({ workshop }) => {
     navigate(`/workshop/${workshop.Id}`);
   };
 
-  return (
+return (
     <motion.div
-      whileHover={{ y: -4, scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
-      className="card card-hover p-6 cursor-pointer group"
+      whileHover={{ y: -6, scale: 1.03 }}
+      whileTap={{ scale: 0.97 }}
+      className="card card-hover cursor-pointer group overflow-hidden bg-white rounded-2xl shadow-card hover:shadow-floating transition-all duration-300"
       onClick={handleCardClick}
     >
-      <div className="flex items-start justify-between mb-3">
-        <Badge variant="primary" size="small">
-          {workshop.category}
-        </Badge>
-        <div className="flex items-center gap-1 text-sm text-gray-600">
-          <ApperIcon name="Users" size={14} />
-          <span>{workshop.enrollmentCount}</span>
-        </div>
-      </div>
-      
-      <h3 className="font-display font-bold text-lg text-gray-900 mb-2 group-hover:text-primary transition-colors">
-        {workshop.title}
-      </h3>
-      
-      <p className="text-gray-600 text-sm mb-4 line-clamp-2">
-        {workshop.description}
-      </p>
-      
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-8 h-8 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center">
-          <ApperIcon name={getCategoryIcon(workshop.category)} size={16} className="text-white" />
-        </div>
-        <div>
-          <p className="font-medium text-sm text-gray-900">{workshop.instructor}</p>
-          <p className="text-xs text-gray-500">Instructor</p>
-        </div>
-      </div>
-      
-      <div className="flex items-center justify-between mb-4">
-        <div className="flex items-center gap-4">
-          <div className="flex items-center gap-1 text-sm text-gray-600">
-            <ApperIcon name="Clock" size={14} />
-            <span>{workshop.duration}</span>
+      {/* Modern Thumbnail Section */}
+      <div className="relative h-48 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/5 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20"></div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-20 h-20 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+            <ApperIcon name={getCategoryIcon(workshop.category)} size={32} className="text-white" />
           </div>
-          <Badge variant={getDifficultyColor(workshop.difficulty)} size="small">
-            {workshop.difficulty}
+        </div>
+        <div className="absolute top-4 left-4">
+          <Badge variant="primary" size="small" className="backdrop-blur-sm bg-white/90 shadow-sm">
+            {workshop.category}
           </Badge>
         </div>
+        <div className="absolute top-4 right-4 flex items-center gap-1 bg-black/20 backdrop-blur-sm rounded-full px-2 py-1">
+          <ApperIcon name="Users" size={12} className="text-white" />
+          <span className="text-xs text-white font-medium">{workshop.enrollmentCount}</span>
+        </div>
+      </div>
+      
+      {/* Content Section */}
+      <div className="p-6">
+<h3 className="font-display font-bold text-xl text-gray-900 mb-3 group-hover:text-primary transition-colors leading-tight">
+          {workshop.title}
+        </h3>
         
-        {workshop.price && (
-          <div className="text-right">
-            <p className="font-bold text-lg gradient-text">${workshop.price}</p>
+        <p className="text-gray-600 text-sm mb-4 line-clamp-2 leading-relaxed">
+          {workshop.description}
+        </p>
+        
+        <div className="flex items-center gap-3 mb-5">
+          <div className="w-10 h-10 bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center">
+            <ApperIcon name="User" size={16} className="text-gray-600" />
+          </div>
+          <div>
+            <p className="font-semibold text-sm text-gray-900">{workshop.instructor}</p>
+            <p className="text-xs text-gray-500">Expert Instructor</p>
+          </div>
+        </div>
+<div className="flex items-center justify-between mb-5">
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-1.5 text-sm text-gray-600 bg-gray-50 rounded-lg px-3 py-1.5">
+              <ApperIcon name="Clock" size={14} />
+              <span className="font-medium">{workshop.duration}</span>
+            </div>
+            <Badge variant={getDifficultyColor(workshop.difficulty)} size="small" className="shadow-sm">
+              {workshop.difficulty}
+            </Badge>
+          </div>
+          
+          {workshop.price && (
+            <div className="text-right">
+              <p className="font-bold text-xl gradient-text">${workshop.price}</p>
+              <p className="text-xs text-gray-500">One-time fee</p>
+            </div>
+          )}
+        </div>
+<Button
+          variant="primary"
+          size="medium"
+          className="w-full shadow-sm hover:shadow-md"
+          onClick={(e) => {
+            e.stopPropagation();
+            handleCardClick();
+          }}
+          icon="ArrowRight"
+          iconPosition="right"
+        >
+          View Details
+        </Button>
+        
+        {workshop.nextSession && (
+          <div className="mt-4 p-3 bg-gradient-to-r from-accent/10 to-yellow-500/10 rounded-xl border border-accent/20">
+            <p className="text-sm text-accent font-semibold text-center flex items-center justify-center gap-1.5">
+              <ApperIcon name="Calendar" size={14} />
+              Next session: {new Date(workshop.nextSession).toLocaleDateString()}
+            </p>
           </div>
         )}
       </div>
-<Button
-        variant="success"
-        className="w-full"
-        onClick={(e) => {
-          e.stopPropagation();
-          handleCardClick();
-        }}
-      >
-        View Details
-      </Button>
-      {workshop.nextSession && (
-        <div className="mt-3 p-2 bg-accent/10 rounded-lg">
-          <p className="text-xs text-accent font-medium text-center">
-            Next session: {new Date(workshop.nextSession).toLocaleDateString()}
-          </p>
-        </div>
-      )}
     </motion.div>
   );
 };

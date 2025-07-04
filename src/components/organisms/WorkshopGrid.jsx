@@ -23,19 +23,19 @@ const WorkshopGrid = ({ workshops, loading, error, onRetry }) => {
     return <Empty type="workshops" />;
   }
 
-  return (
+return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.3 }}
-      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+      transition={{ duration: 0.4 }}
+      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
     >
-      {workshops.map((workshop, index) => (
+{workshops.map((workshop, index) => (
         <motion.div
           key={workshop.Id}
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: index * 0.1 }}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
         >
           <WorkshopCard workshop={workshop} />
         </motion.div>

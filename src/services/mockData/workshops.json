@@ -9,6 +9,7 @@
     "difficulty": "Beginner",
     "enrollmentCount": 1247,
     "price": 49,
+    "thumbnail": "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=400&h=300&fit=crop",
     "nextSession": "2024-02-15T10:00:00Z",
     "modules": [
       {
@@ -65,7 +66,7 @@
       "Build sustainable productivity habits"
     ]
   },
-  {
+{
     "Id": 2,
     "title": "Effective Communication Skills",
     "category": "Communication",
@@ -75,6 +76,7 @@
     "difficulty": "Beginner",
     "enrollmentCount": 892,
     "price": 59,
+    "thumbnail": "https://images.unsplash.com/photo-1556761175-4b46a572b786?w=400&h=300&fit=crop",
     "nextSession": "2024-02-20T14:00:00Z",
     "modules": [
       {
@@ -137,7 +139,7 @@
       "Handle difficult conversations"
     ]
   },
-  {
+{
     "Id": 3,
     "title": "Personal Finance Basics",
     "category": "Personal Finance",
@@ -147,6 +149,7 @@
     "difficulty": "Beginner",
     "enrollmentCount": 1567,
     "price": 79,
+    "thumbnail": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop",
     "nextSession": "2024-02-18T09:00:00Z",
     "modules": [
       {
@@ -209,7 +212,7 @@
       "Develop healthy money habits"
     ]
   },
-  {
+{
     "Id": 4,
     "title": "Essential Soft Skills for Success",
     "category": "Soft Skills",
@@ -219,6 +222,7 @@
     "difficulty": "Intermediate",
     "enrollmentCount": 743,
     "price": 69,
+    "thumbnail": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=300&fit=crop",
     "nextSession": "2024-02-25T11:00:00Z",
     "modules": [
       {
@@ -281,7 +285,7 @@
       "Build leadership presence"
     ]
   },
-  {
+{
     "Id": 5,
     "title": "Writing That Works: Clear Communication",
     "category": "Verbal and Written",
@@ -291,6 +295,7 @@
     "difficulty": "Beginner",
     "enrollmentCount": 624,
     "price": 45,
+    "thumbnail": "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=400&h=300&fit=crop",
     "nextSession": "2024-02-22T13:00:00Z",
     "modules": [
       {
@@ -353,7 +358,7 @@
       "Edit and proofread effectively"
     ]
   },
-  {
+{
     "Id": 6,
     "title": "Advanced Time Management Strategies",
     "category": "Time Management",
@@ -363,6 +368,7 @@
     "difficulty": "Advanced",
     "enrollmentCount": 389,
     "price": 89,
+    "thumbnail": "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop",
     "nextSession": "2024-03-01T15:00:00Z",
     "modules": [
       {

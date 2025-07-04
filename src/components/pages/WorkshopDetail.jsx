@@ -146,39 +146,49 @@ const handleEnroll = () => {
     }
   };
 
-  return (
+return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary to-secondary text-white py-16">
-        <div className="container mx-auto px-4">
+      <section className="relative bg-gradient-to-br from-primary via-secondary to-accent text-white py-20 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-black/20 to-transparent"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto"
+            transition={{ duration: 0.8 }}
+            className="max-w-6xl mx-auto"
           >
-            <div className="flex items-center gap-4 mb-6">
-              <Badge variant="accent" size="medium">
-                {workshop.category}
-              </Badge>
-              <Badge variant={getDifficultyColor(workshop.difficulty)} size="medium">
-                {workshop.difficulty}
-              </Badge>
-              {isEnrolled && (
-                <Badge variant="success" size="medium" icon="CheckCircle">
-                  Enrolled
-                </Badge>
-              )}
+            {/* Feature Thumbnail */}
+            <div className="flex flex-col lg:flex-row gap-8 items-center mb-8">
+              <div className="w-full lg:w-80 h-64 bg-white/10 backdrop-blur-sm rounded-3xl flex items-center justify-center shadow-2xl">
+                <div className="w-24 h-24 bg-white/20 rounded-2xl flex items-center justify-center">
+                  <ApperIcon name={getCategoryIcon(workshop.category)} size={48} className="text-white" />
+                </div>
+              </div>
+              
+              <div className="flex-1 text-center lg:text-left">
+<div className="flex flex-wrap items-center gap-3 mb-6 justify-center lg:justify-start">
+                  <Badge variant="accent" size="medium" className="backdrop-blur-sm bg-white/20 border border-white/30">
+                    {workshop.category}
+                  </Badge>
+                  <Badge variant={getDifficultyColor(workshop.difficulty)} size="medium" className="backdrop-blur-sm bg-white/20 border border-white/30">
+                    {workshop.difficulty}
+                  </Badge>
+                  {isEnrolled && (
+                    <Badge variant="success" size="medium" icon="CheckCircle" className="backdrop-blur-sm bg-success/20 border border-success/30">
+                      Enrolled
+                    </Badge>
+                  )}
+                </div>
+<h1 className="font-display font-bold text-4xl md:text-6xl mb-6 leading-tight">
+                  {workshop.title}
+                </h1>
+                
+                <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
+                  {workshop.description}
+                </p>
+              </div>
             </div>
-            
-            <h1 className="font-display font-bold text-4xl md:text-5xl mb-4">
-              {workshop.title}
-            </h1>
-            
-            <p className="text-xl text-white/90 mb-8">
-              {workshop.description}
-            </p>
-            
             <div className="flex flex-wrap items-center gap-6 mb-8">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">

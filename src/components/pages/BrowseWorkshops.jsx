@@ -99,35 +99,36 @@ const BrowseWorkshops = () => {
     loadWorkshops();
   };
 
-  return (
+return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary to-secondary text-white py-16">
-        <div className="container mx-auto px-4">
+      <section className="bg-gradient-to-br from-primary via-secondary to-accent text-white py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-black/10 to-transparent"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto"
+            transition={{ duration: 0.8 }}
+            className="text-center max-w-4xl mx-auto"
           >
-            <h1 className="font-display font-bold text-4xl md:text-5xl mb-4">
+<h1 className="font-display font-bold text-5xl md:text-6xl mb-6 leading-tight">
               Master Essential Life Skills
             </h1>
-            <p className="text-xl text-white/90 mb-8">
+            <p className="text-xl md:text-2xl text-white/90 mb-10 leading-relaxed">
               Build confidence with beginner-friendly workshops designed for real-world success
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <div className="flex items-center gap-2 bg-white/20 rounded-full px-4 py-2">
-                <ApperIcon name="Users" size={16} />
-                <span className="text-sm font-medium">1000+ Students</span>
+            <div className="flex flex-wrap justify-center gap-4 mb-8">
+              <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-5 py-3 border border-white/30">
+                <ApperIcon name="Users" size={18} />
+                <span className="text-sm font-semibold">1000+ Students</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/20 rounded-full px-4 py-2">
-                <ApperIcon name="Star" size={16} />
-                <span className="text-sm font-medium">Expert Instructors</span>
+<div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-5 py-3 border border-white/30">
+                <ApperIcon name="Star" size={18} />
+                <span className="text-sm font-semibold">Expert Instructors</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/20 rounded-full px-4 py-2">
-                <ApperIcon name="Clock" size={16} />
-                <span className="text-sm font-medium">Self-Paced</span>
+              <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-5 py-3 border border-white/30">
+                <ApperIcon name="Clock" size={18} />
+                <span className="text-sm font-semibold">Self-Paced</span>
               </div>
             </div>
           </motion.div>
