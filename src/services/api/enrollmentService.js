@@ -7,7 +7,7 @@ export const getUserEnrollments = async () => {
   return [...enrollmentsData];
 };
 
-export const enrollInWorkshop = async (workshopId) => {
+export const enrollInWorkshop = async (workshopId, userData = {}) => {
   await delay(500);
   const newEnrollment = {
     Id: Math.max(...enrollmentsData.map(e => e.Id)) + 1,
@@ -15,10 +15,28 @@ export const enrollInWorkshop = async (workshopId) => {
     enrolledDate: new Date().toISOString(),
     progress: 0,
     completedModules: [],
-    status: 'not-started'
+    status: 'not-started',
+    userData: {
+      name: userData.name || '',
+      email: userData.email || '',
+      phone: userData.phone || ''
+    }
   };
   enrollmentsData.push(newEnrollment);
   return { ...newEnrollment };
+};
+
+export const processPayment = async (workshopId, userData, paymentData) => {
+  await delay(800);
+  // Simulate payment processing
+  const paymentResult = {
+    success: true,
+    transactionId: `txn_${Date.now()}`,
+    amount: paymentData.amount,
+    currency: 'USD',
+    status: 'completed'
+  };
+  return paymentResult;
 };
 
 export const updateProgress = async (workshopId, moduleId) => {

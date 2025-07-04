@@ -1,14 +1,15 @@
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { toast } from 'react-toastify';
-import ApperIcon from '@/components/ApperIcon';
-import Button from '@/components/atoms/Button';
-import Badge from '@/components/atoms/Badge';
-import Loading from '@/components/ui/Loading';
-import Error from '@/components/ui/Error';
-import { getWorkshopById } from '@/services/api/workshopService';
-import { enrollInWorkshop } from '@/services/api/enrollmentService';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { motion } from "framer-motion";
+import { toast } from "react-toastify";
+import ApperIcon from "@/components/ApperIcon";
+import Badge from "@/components/atoms/Badge";
+import Button from "@/components/atoms/Button";
+import Input from "@/components/atoms/Input";
+import Error from "@/components/ui/Error";
+import Loading from "@/components/ui/Loading";
+import { getWorkshopById } from "@/services/api/workshopService";
+import { enrollInWorkshop } from "@/services/api/enrollmentService";
 
 const WorkshopDetail = () => {
   const { id } = useParams();
@@ -17,6 +18,13 @@ const WorkshopDetail = () => {
   const [error, setError] = useState('');
   const [enrolling, setEnrolling] = useState(false);
   const [isEnrolled, setIsEnrolled] = useState(false);
+  const [showEnrollForm, setShowEnrollForm] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: ''
+  });
+  const [formErrors, setFormErrors] = useState({});
 
   const loadWorkshop = async () => {
     setLoading(true);
@@ -37,17 +45,58 @@ const WorkshopDetail = () => {
     loadWorkshop();
   }, [id]);
 
-  const handleEnroll = async () => {
+const handleEnroll = () => {
+    setShowEnrollForm(true);
+  };
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    
+    // Validate form
+    const errors = {};
+    if (!formData.name.trim()) errors.name = 'Name is required';
+    if (!formData.email.trim()) errors.email = 'Email is required';
+    else if (!/\S+@\S+\.\S+/.test(formData.email)) errors.email = 'Invalid email format';
+    if (!formData.phone.trim()) errors.phone = 'Phone number is required';
+    else if (!/^\+?[\d\s-()]{10,}$/.test(formData.phone)) errors.phone = 'Invalid phone number format';
+    
+    setFormErrors(errors);
+    
+    if (Object.keys(errors).length > 0) {
+      toast.error('Please fix the form errors');
+      return;
+    }
+
     setEnrolling(true);
     try {
-      await enrollInWorkshop(parseInt(id));
-      setIsEnrolled(true);
-      toast.success('Successfully enrolled in workshop!');
+      const enrollmentData = await enrollInWorkshop(parseInt(id), formData);
+      
+      // Redirect to payment gateway
+      const paymentUrl = `https://payment-gateway.com/checkout?workshop=${id}&price=${workshop.price}&name=${encodeURIComponent(formData.name)}&email=${encodeURIComponent(formData.email)}&phone=${encodeURIComponent(formData.phone)}&enrollmentId=${enrollmentData.Id}`;
+      
+      toast.success('Redirecting to payment gateway...');
+      setTimeout(() => {
+        window.location.href = paymentUrl;
+      }, 1500);
+      
     } catch (err) {
-      toast.error('Failed to enroll. Please try again.');
-    } finally {
+      toast.error('Failed to process enrollment. Please try again.');
       setEnrolling(false);
     }
+  };
+
+  const handleFormChange = (field, value) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+    if (formErrors[field]) {
+      setFormErrors(prev => ({ ...prev, [field]: '' }));
+    }
+  };
+
+  const handleCloseForm = () => {
+    setShowEnrollForm(false);
+    setFormData({ name: '', email: '', phone: '' });
+    setFormErrors({});
+    setEnrolling(false);
   };
 
   const handleRetry = () => {
@@ -167,7 +216,6 @@ const WorkshopDetail = () => {
                 size="large"
                 onClick={handleEnroll}
                 disabled={isEnrolled}
-                loading={enrolling}
                 icon={isEnrolled ? "CheckCircle" : "PlayCircle"}
                 className="sm:w-auto"
               >
@@ -296,16 +344,28 @@ const WorkshopDetail = () => {
                   transition={{ duration: 0.6, delay: 0.6 }}
 className="bg-white rounded-xl shadow-card p-6 sticky top-24"
                 >
-                  <div className="text-center mb-6 p-4 bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg border">
+                  <div className="text-center mb-6 p-6 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-xl border border-primary/10">
                     <div className="mb-3">
-                      <span className="text-sm font-medium text-gray-500 uppercase tracking-wide">Course Price</span>
+                      <span className="text-sm font-medium text-primary uppercase tracking-wide">Special Offer</span>
                     </div>
-                    <div className="flex items-center justify-center gap-2 mb-2">
-                      <span className="text-4xl font-bold text-gray-900">${workshop.price}</span>
-                      <span className="text-lg text-gray-500 line-through opacity-60">${Math.round(workshop.price * 1.5)}</span>
+                    <div className="flex items-center justify-center gap-3 mb-3">
+                      <span className="text-5xl font-bold text-gray-900">${workshop.price}</span>
+                      <div className="flex flex-col items-start">
+                        <span className="text-xl text-gray-500 line-through">${Math.round(workshop.price * 1.8)}</span>
+                        <span className="text-sm text-success font-semibold">Save ${Math.round(workshop.price * 0.8)}</span>
+                      </div>
                     </div>
-                    <p className="text-green-600 font-medium mb-2">✓ One-time payment</p>
-                    <p className="text-sm text-gray-600">No recurring fees • Lifetime access</p>
+                    <div className="space-y-2">
+                      <p className="text-success font-semibold flex items-center justify-center gap-1">
+                        <ApperIcon name="CheckCircle" size={16} />
+                        One-time payment
+                      </p>
+                      <p className="text-sm text-gray-600">No recurring fees • Lifetime access</p>
+                      <div className="inline-flex items-center gap-2 bg-accent/10 text-accent px-3 py-1 rounded-full text-sm font-medium">
+                        <ApperIcon name="Clock" size={14} />
+                        Limited time offer
+                      </div>
+                    </div>
                   </div>
                   
                   <Button
@@ -313,7 +373,6 @@ className="bg-white rounded-xl shadow-card p-6 sticky top-24"
                     size="large"
                     onClick={handleEnroll}
                     disabled={isEnrolled}
-                    loading={enrolling}
                     icon={isEnrolled ? "CheckCircle" : "PlayCircle"}
                     className="w-full mb-4"
                   >
@@ -353,8 +412,104 @@ className="bg-white rounded-xl shadow-card p-6 sticky top-24"
               </div>
             </div>
           </div>
-        </div>
+</div>
       </section>
+
+      {/* Enrollment Form Modal */}
+      {showEnrollForm && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            className="bg-white rounded-xl shadow-floating max-w-md w-full p-6"
+          >
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="font-display font-bold text-xl text-gray-900">
+                Enroll in Workshop
+              </h3>
+              <button
+                onClick={handleCloseForm}
+                className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                disabled={enrolling}
+              >
+                <ApperIcon name="X" size={20} />
+              </button>
+            </div>
+
+            <div className="mb-6 p-4 bg-gray-50 rounded-lg">
+              <h4 className="font-semibold text-gray-900 mb-1">{workshop.title}</h4>
+              <div className="flex items-center justify-between">
+                <span className="text-gray-600">Total Amount:</span>
+                <span className="font-bold text-lg text-primary">${workshop.price}</span>
+              </div>
+            </div>
+
+            <form onSubmit={handleFormSubmit} className="space-y-4">
+              <Input
+                label="Full Name"
+                type="text"
+                placeholder="Enter your full name"
+                value={formData.name}
+                onChange={(e) => handleFormChange('name', e.target.value)}
+                error={formErrors.name}
+                required
+                icon="User"
+                disabled={enrolling}
+              />
+
+              <Input
+                label="Email Address"
+                type="email"
+                placeholder="Enter your email"
+                value={formData.email}
+                onChange={(e) => handleFormChange('email', e.target.value)}
+                error={formErrors.email}
+                required
+                icon="Mail"
+                disabled={enrolling}
+              />
+
+              <Input
+                label="Phone Number"
+                type="tel"
+                placeholder="Enter your phone number"
+                value={formData.phone}
+                onChange={(e) => handleFormChange('phone', e.target.value)}
+                error={formErrors.phone}
+                required
+                icon="Phone"
+                disabled={enrolling}
+              />
+
+              <div className="flex gap-3 pt-4">
+                <Button
+                  type="button"
+                  variant="secondary"
+                  onClick={handleCloseForm}
+                  disabled={enrolling}
+                  className="flex-1"
+                >
+                  Cancel
+                </Button>
+                <Button
+                  type="submit"
+                  variant="success"
+                  loading={enrolling}
+                  icon="CreditCard"
+                  className="flex-1"
+                >
+                  {enrolling ? 'Processing...' : 'Proceed to Payment'}
+                </Button>
+              </div>
+            </form>
+
+            <p className="text-xs text-gray-500 mt-4 text-center">
+              You will be redirected to our secure payment gateway to complete your enrollment.
+            </p>
+          </motion.div>
+        </div>
+      )}
     </div>
   );
 };
